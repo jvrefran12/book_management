@@ -13,7 +13,12 @@ import java.util.List;
 @RequestMapping("/books")
 public class BookController {
 
-    private BookService bookService;
+    private final BookService bookService;
+
+    @Autowired
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
