@@ -55,7 +55,7 @@ public class BookController {
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("ids")
+    @DeleteMapping("/ids")
     public ResponseEntity<Void> deleteMultipleBooks(@RequestBody IdListRequest request) {
         bookService.deleteMultipleBook(request.getIds());
         return  ResponseEntity.noContent().build();
