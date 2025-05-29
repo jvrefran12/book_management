@@ -19,8 +19,17 @@ public class BookService {
         return bookRepository.save(book);
     }
 
+    public List<Book> addMultipleBook(List<Book> newBooks) {
+        return bookRepository.saveAll(newBooks);
+    }
+
     public List<Book> getAllBooks(){
         return bookRepository.findAll();
+    }
+
+    //Get multiple specific books
+    public List<Book> getMultipleBooks(List<Long> ids) {
+        return bookRepository.findAllById(ids);
     }
 
     public Optional<Book> getBookById(Long id){
@@ -30,5 +39,8 @@ public class BookService {
     public void deleteBook(Long id) {
         bookRepository.deleteById(id);
     }
+
+    //Delete multiple Books
+    public void deleteMultipleBook(List<Long> ids) { bookRepository.deleteAllById(ids); }
 
 }
