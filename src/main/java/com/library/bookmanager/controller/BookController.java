@@ -4,13 +4,14 @@ import com.library.bookmanager.entity.Book;
 import com.library.bookmanager.service.BookService;
 import com.library.bookmanager.dto.NewBooksListRequest;
 import com.library.bookmanager.dto.IdListRequest;
+import com.library.bookmanager.dto.dataFormat;
 import lombok.RequiredArgsConstructor;
 import org.apache.coyote.Response;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -33,7 +34,8 @@ public class BookController {
     }
 
     @GetMapping
-    public List<Book> getAllBooks() {
+
+    public List<dataFormat> getAllBooks() {
         return bookService.getAllBooks();
     }
 
@@ -45,7 +47,8 @@ public class BookController {
     }
 
     @PostMapping("/ids")
-    public List<Book> getMultipleBooks(@RequestBody IdListRequest request) {
+
+    public List<dataFormat> getMultipleBooks(@RequestBody IdListRequest request) {
         return bookService.getMultipleBooks(request.getIds());
     }
 
@@ -58,6 +61,18 @@ public class BookController {
     @DeleteMapping("/ids")
     public ResponseEntity<Void> deleteMultipleBooks(@RequestBody IdListRequest request) {
         bookService.deleteMultipleBook(request.getIds());
+        return  ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/archive/{id}")
+    public ResponseEntity<Void> archiveBook(@PathVariable Long id) {
+        bookService.archiveBook(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/archive/ids")
+    public ResponseEntity<Void> archiveMultipleBooks(@RequestBody IdListRequest request) {
+        bookService.archiveMultipleBook(request.getIds());
         return  ResponseEntity.noContent().build();
     }
 

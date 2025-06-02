@@ -28,15 +28,23 @@ public class Book {
 
     private Boolean isAvailable;
 
+    @Column(nullable = true)
+    private LocalDate deletedAt;
+
+    private Boolean isDeleted = false; // 👈 soft delete flag
+
     //Constructor
     public Book(){}
 
-    public Book(String title, String author, String description, LocalDate publishedDate, Boolean isAvailable) {
+    public Book(String title, String author, String description, LocalDate publishedDate, Boolean isAvailable, LocalDate deletedAt, Boolean isDeleted) {
+
         this.title = title;
         this.author = author;
         this.description = description;
         this.publishedDate = publishedDate;
         this.isAvailable = isAvailable;
+        this.deletedAt = deletedAt;
+        this.isDeleted = isDeleted;
 
     }
 
