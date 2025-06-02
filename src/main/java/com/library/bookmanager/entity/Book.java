@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity // Marks this class as a JPA entity
 @Getter
@@ -38,6 +37,7 @@ public class Book {
     public Book(){}
 
     public Book(String title, String author, String description, LocalDate publishedDate, Boolean isAvailable, LocalDate deletedAt, Boolean isDeleted) {
+
         this.title = title;
         this.author = author;
         this.description = description;
@@ -45,6 +45,7 @@ public class Book {
         this.isAvailable = isAvailable;
         this.deletedAt = deletedAt;
         this.isDeleted = isDeleted;
+
     }
 
 }

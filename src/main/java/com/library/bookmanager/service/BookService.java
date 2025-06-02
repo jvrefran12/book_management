@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
 @Service
 @RequiredArgsConstructor
 public class BookService {
@@ -29,6 +30,7 @@ public class BookService {
     public List<Book> addMultipleBook(List<Book> newBooks) {
         return bookRepository.saveAll(newBooks);
     }
+
 
     //Get all books
     public List<dataFormat> getAllBooks(){
@@ -96,5 +98,6 @@ public class BookService {
         bookRepository.saveAll(books);
 
     }
+
 
 }

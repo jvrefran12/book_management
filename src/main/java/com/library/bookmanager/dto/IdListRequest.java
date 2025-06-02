@@ -11,4 +11,5 @@ import java.util.List;
 @Setter
 public class IdListRequest {
     private List<Long> ids;
+
 }

@@ -6,6 +6,7 @@ import com.library.bookmanager.dto.NewBooksListRequest;
 import com.library.bookmanager.dto.IdListRequest;
 import com.library.bookmanager.dto.dataFormat;
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,7 @@ public class BookController {
     }
 
     @GetMapping
+
     public List<dataFormat> getAllBooks() {
         return bookService.getAllBooks();
     }
@@ -45,6 +47,7 @@ public class BookController {
     }
 
     @PostMapping("/ids")
+
     public List<dataFormat> getMultipleBooks(@RequestBody IdListRequest request) {
         return bookService.getMultipleBooks(request.getIds());
     }

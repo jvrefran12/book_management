@@ -9,4 +9,5 @@ CREATE TABLE IF NOT EXISTS books_schema.books (
     is_available BOOLEAN,
     deleted_at DATE,
     is_deleted BOOLEAN
+    is_available BOOLEAN
 );
